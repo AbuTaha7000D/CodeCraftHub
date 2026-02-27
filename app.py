@@ -12,12 +12,15 @@ import json
 import os
 from datetime import datetime, timezone
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 # ─────────────────────────────────────────────────────────────
 # 1. App Configuration
 # ─────────────────────────────────────────────────────────────
 
 app = Flask(__name__)
+# Enable CORS for all routes (necessary for frontend/backend communication on different ports)
+CORS(app)
 
 # Data file path
 DATA_FILE = "courses.json"
